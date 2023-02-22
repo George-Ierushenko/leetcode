@@ -4,18 +4,16 @@
  */
 const operators = ['*', '/', '+', '-']
 
-var calculate = function(s) {  
+var calculate = function (s) {
     const { value } = recCalculate(s)
     return value
 };
-
-
 
 const recCalculate = (s, start = 0) => {
     const isNumber = (char) => !Number.isNaN(+char)
 
     const evalStack = []
-    
+
     let curNumber = ''
     let curOperator = '+'
     let index = 0
@@ -26,7 +24,7 @@ const recCalculate = (s, start = 0) => {
         if (isNumber(curChar)) {
             curNumber += curChar
 
-            if (index !== s.length - 1)continue
+            if (index !== s.length - 1) continue
         }
 
         if (curChar === '(') {
@@ -62,4 +60,4 @@ const recCalculate = (s, start = 0) => {
     return { value, index }
 }
 
-console.log(calculate("10  - 1 / 3"))
+console.log(calculate("10 - 3"))
